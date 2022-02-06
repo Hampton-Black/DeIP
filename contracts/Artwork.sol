@@ -3,10 +3,8 @@ pragma solidity ^0.8.0;
 
 import {RedirectAll, ISuperToken, IConstantFlowAgreementV1, ISuperfluid} from "./RedirectAll.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-//import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract Artwork is ERC721, RedirectAll {
-  // using Counters for Counters.Counter;
 
   uint256 public tokenId;
 
@@ -106,6 +104,7 @@ contract Artwork is ERC721, RedirectAll {
     createMultiFlows(acceptedToken, msg.sender, (msg.value / _art.donationAmount), ctx ); // what to put for ctx?
   }
 
+  // use before selling token, not renting 
   function _beforeTokenTransfer(
     address /*from*/,
     address to,
